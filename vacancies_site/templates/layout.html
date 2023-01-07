@@ -19,16 +19,23 @@
 </head>
 <body>
     <header>
+        <div class='header'>
+            <span class='logo text' id='logo-button'>your dream job</span>
+        </div>
         {% block header %}
         {% endblock %}
     </header>
     <body>
         <div class='container'>
             <div class='left-menu'>
-                <button class='link-button text' id='demand'>Востребованность</button>
-                <button class='link-button text' id='geography'>География</button>
-                <button class='link-button text' id='skills'>Навыки</button>
-                <button class='link-button text' id='last_vacancies'>Последние вакансии</button>
+                <button class='dropdown-menu text' onclick='ToggleShower()'>Меню</button>
+                <div class='dropdown-buttons' id='dropper'>
+                    <button class='link-button text' id='main'>Главная</button>
+                    <button class='link-button text' id='demand'>Востребованность</button>
+                    <button class='link-button text' id='geography'>География</button>
+                    <button class='link-button text' id='skills'>Навыки</button>
+                    <button class='link-button text' id='last_vacancies'>Последние вакансии</button>
+                </div>
             </div>
             <div class='wrapper'>
                 {% block body %}
