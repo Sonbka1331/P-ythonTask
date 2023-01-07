@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+
+.container {
+	display: flex;
+	flex-direction: row;
+}
+
+.left-menu {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.footer {
+	display: flex;
+	flex-direction: row;
+}
+
+.text {
+	font-family: 'Jost';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 30px;
+	line-height: 65px;
+	color: #000000;
+}
+
+.creator-name {
+	padding: 10px;
+}
+
+.group-name {
+	padding: 10px;
+}
