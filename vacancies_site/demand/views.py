@@ -1,5 +1,8 @@
 from django.shortcuts import render
+from .models import DemandData
 
 
 def index(request):
-    return render(request, "demand/index.html")
+    demand = DemandData.objects.all()
+    context = {'demand': demand}
+    return render(request, "demand/index.html", context=context)
