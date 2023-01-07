@@ -7,30 +7,35 @@ const dropperButton = document.getElementById('dropper');
 
 // button click event
 
-/*mainPage.addEventListener(
-	'click', 
-	window.location.href = ''
+mainPage.addEventListener(
+	'click', function() {
+		window.location.href = '/';
+	}
 );
 
 demandPage.addEventListener(
-	'click',
-	window.location.href = '/demand'
+	'click', function() {
+		window.location.href = '/demand';
+	}
 );
 
 geographyPage.addEventListener(
-	'click',
-	window.location.href = '/geography'
+	'click',  function() {
+		window.location.href = '/geography';
+	}
 );
 
 skillsPage.addEventListener(
-	'click',
-	window.location.href = '/skills'
+	'click', function() {
+		window.location.href = '/skills';
+	}
 );
 
 last_vacanciesPage.addEventListener(
-	'click',
-	window.location.href = 'last_vacancies'
-);*/
+	'click',  function() {
+		window.location.href = '/last_vacancies';
+	}
+);
 
 
 // drop down menu logic
