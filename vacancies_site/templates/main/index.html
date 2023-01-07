@@ -1,7 +1,6 @@
 {% extends '../layout.html' %}
 {% load static %}
 
-
 {% block links %}
 <link rel="stylesheet" type="text/css" href="{% static 'main/css/index.css' %}">
 {% endblock %}
@@ -14,6 +13,19 @@
 {% endblock %}
 
 {% block body %}
+<div class='page-title'>
+    <img class='title-img' src="{% static 'main/img/python-logo.png' %}">
+    <span class='title-text text'>Главная</span>
+</div>
+<div class='description'>
+    {% for item in description %}
+        <div class='description-block {{ item.individual_class }}'>
+            <img class='description-img' src="/static/main/img/{{ item.picture }}.png">
+            <span class='subtitle text'>{{ item.title }}</span>
+            <span class='subtitle-desc text'>{{ item.text }}</span>
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}
 
 {% block footer%}
