@@ -90,7 +90,7 @@ for (var i = 0; i < vacancyElements.length; i++) {
     vacancyData.push(vacancyElements[i].textContent);
 }
 
-vacancyCtx.fillStyle = "green"; 
+vacancyCtx.fillStyle = "blue"; 
 for(var i=0; i<vacancyData.length; i++) { 
     var dp = vacancyData[i]; 
     vacancyCtx.fillRect(60 + i*30, 460-dp*5 , 5, dp*5); 
