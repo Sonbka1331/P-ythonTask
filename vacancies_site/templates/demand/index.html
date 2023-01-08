@@ -21,7 +21,7 @@
     <div class='charts'>
         {% for item in demand %}
             <div class='chart-block'>
-                    <label class='chart-title text'>{{ item.name }}</label>
+                <label class='chart-title text'>{{ item.name }}</label>
                 <div class='chart-main'>
                     <canvas width="500" height="500" id='{{ item.individual_id }}'></canvas>
                     <table class='chart-table text'>
