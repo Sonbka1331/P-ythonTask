@@ -34,8 +34,11 @@ for(var i=0; i<10; i++) {
     moneyCtx.fillText(years[i], 50+ i*50, 475); 
 }
 
-
-let moneyData = [26.6, 29.7, 32.4, 34, 36.7, 39.1, 43.7, 45.6, 47.3, 50.1]; 
+moneyElements = document.getElementsByClassName('money_chart');
+let moneyData = [];
+for (var i = 0; i < moneyElements.length; i++) {
+    moneyData.push(moneyElements[i].textContent);
+}
 
 moneyCtx.fillStyle = "green"; 
 for(var i=0; i<moneyData.length; i++) { 
@@ -66,7 +69,11 @@ for(var i=0; i<10; i++) {
     vacanciesCtx.fillText(years[i], 50+ i*50, 475); 
 }
 
-let vacanciesData = [66, 70, 72, 75, 72, 76, 79, 80, 84, 90]; 
+vacanciesElements = document.getElementsByClassName('money_chart');
+let vacanciesData = [];
+for (var i = 0; i < vacanciesElements.length; i++) {
+    vacanciesData.push(vacanciesElements[i].textContent);
+}
 
 vacanciesCtx.fillStyle = "blue"; 
 for(var i=0; i<vacanciesData.length; i++) { 
@@ -97,7 +104,11 @@ for(var i=0; i<10; i++) {
     profmoneyCtx.fillText(years[i], 50+ i*50, 475); 
 }
 
-let profmoneyData = [55.5, 57, 70, 65, 63, 75, 80, 82, 84, 90]; 
+profmoneyElements = document.getElementsByClassName('money_chart');
+let profmoneyData = [];
+for (var i = 0; i < profmoneyElements.length; i++) {
+    profmoneyData.push(profmoneyElements[i].textContent);
+}
 
 profmoneyCtx.fillStyle = "red"; 
 for(var i=0; i<profmoneyData.length; i++) { 
@@ -128,7 +139,11 @@ for(var i=0; i<10; i++) {
     profvacanciesCtx.fillText(years[i], 50+ i*50, 475); 
 }
 
-let profvacanciesData = [12, 16, 18, 20, 25, 30, 34, 40, 44, 56]; 
+profvacanciesElements = document.getElementsByClassName('money_chart');
+let profvacanciesData = [];
+for (var i = 0; i < profvacanciesElements.length; i++) {
+    profvacanciesData.push(profvacanciesElements[i].textContent);
+}
 
 profvacanciesCtx.fillStyle = "yellow"; 
 for(var i=0; i<profvacanciesData.length; i++) { 
