@@ -7,13 +7,36 @@
 {% endblock %}
 
 {% block title %}
-    Everything about your work
+    Ключевые навыки
 {% endblock %}
 
 {% block header %}
 {% endblock %}
 
 {% block body %}
+    <div class='page-title'>
+        <img class='title-img' src="{% static 'main/img/python-logo.png' %}">
+        <span class='title-text text'>Ключевые навыки</span>
+    </div>
+    <div class='charts'>
+        <div class='chart-block'>
+            <label class='chart-title text'>ТОП-10 Навыков по годам</label>
+            <div class='chart-main'>
+                <table class='chart-table text'>
+                    <tr>
+                        <th style="border-right: 1px solid grey; border-bottom: 1px solid grey">Год</th>
+                        <th style="border-bottom: 1px solid grey;">Ключевые навыки</th>
+                    </tr>
+                    {% for item in key_skills %}
+                    <tr>
+                        <th style="border-right: 1px solid grey;">{{ item.year }}</th>
+                        <th>{{ item.key_skills }}</th>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block footer%}
