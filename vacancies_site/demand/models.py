@@ -12,12 +12,6 @@ class DemandData(models.Model):
     def __str__(self):
         return str(self.name)
 
-    def data_as_list(self):
-        return self.data.split(', ')
-
-    def years_as_list(self):
-        return self.years.split(', ')
-
     def values_as_dict(self):
         values = {}
         data = self.data.split(', ')
