@@ -33,16 +33,16 @@
                         <span class='text'>/</span>
                         <span class='text'>{{ vacancy.area }}</span>
                     </div>
+                    <div class='vacancy-description text' style="line-height: normal;font-size: 16px;margin: 0 5%;">
+                        {{ vacancy.description }}
+                    </div>
                     <div class='vacancy-requirements'>
                         <span class='text'><b>Требования</b></span>
-                        {% for skill in vacancy.skills %}
-                            <span class='text'>{{ skill }}</span>
-                        {% endfor %}
+                        <span class='text'>{{ vacancy.skills }}</span>
                     </div>
                     <div class='vacancy-salary'>
                         <span class='text'><b>Оклад</b></span>
-                        <span class='text'>Оклад от: {% if vacancy.salary.from %}{{ vacancy.salary.from }}{% else %}НЕ УКАЗАНО{% endif %} {{ vacancy.salary.currency }}</span>
-                        <span class='text'>Оклад до: {% if vacancy.salary.to %}{{ vacancy.salary.to }}{% else %}НЕ УКАЗАНО{% endif %} {{ vacancy.salary.currency }}</span>
+                        <span class='text'>{{ vacancy.salary }}</span>
                     </div>
                     <div class='vacancy-footer'>
                         <span class='vacancy-published text'>{{ vacancy.date_published }}</span>

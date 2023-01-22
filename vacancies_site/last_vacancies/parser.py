@@ -18,6 +18,10 @@ class HHParser():
     def clean_html_tags(self, string: str):
         template = re.compile('<.*?>')
         cleantext = re.sub(template, '', string)
+
+        template = re.compile('&.*?;')
+        cleantext = re.sub(template, '', cleantext)
+
         return cleantext
 
     def get_vacancies(self):
@@ -30,22 +34,54 @@ class HHParser():
         resp = requests.get('https://api.hh.ru/vacancies', params=params)
         return resp.json()
 
+    def get_every_vacancy(self, vacancy_id: str):
+        resp = requests.get(f'https://api.hh.ru/vacancies/{vacancy_id}')
+        return resp.json()
+
     def parse_vacancies(self):
         vacancies = self.get_vacancies()
         vacancyList = []
+        _ = 0
         for vacancy in vacancies['items']:
+            if _ == 10:
+                break
+            data = self.get_every_vacancy(vacancy['id'])
+
+            name = data['name']
+
+            description = data['description']
+
+            skills = ''
+            for skill in data['key_skills']:
+                skills += f"{skill['name']}, "
+            skills = skills[:-2]
+
+            try:
+                salary = data['salary']['from']
+                currency = data['salary']['currency']
+            except TypeError:
+                salary = 'Не указано'
+                currency = ''
+
+            region = data['area']['name']
+
+            company = data['employer']['name']
+            date_published = data['published_at'].split('T')[0]
+
             vacancyList.append(
                 {
-                    'name': vacancy['name'],
-                    'area': vacancy['area']['name'],
-                    'skills': self.clean_html_tags(vacancy['snippet']['requirement']).split('. '),
-                    'company': vacancy['employer']['name'],
-                    'logo': vacancy['employer']['logo_urls'],
-                    'salary': vacancy['salary'],
-                    'date_published': vacancy['published_at'].split('T')[0],
-                    'url': vacancy['alternate_url']
+                    'name': name,
+                    'area': region,
+                    'description': self.clean_html_tags(description),
+                    'skills': skills,
+                    'company': company,
+                    'logo': data['employer']['logo_urls'],
+                    'salary': f"{salary} {currency}",
+                    'date_published': date_published,
+                    'url': data['alternate_url']
                 }
             )
+            _ += 1
         return vacancyList
 
 
